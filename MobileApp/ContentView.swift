@@ -16,52 +16,28 @@ struct ContentView: View {
         animation: .default)
     private var items: FetchedResults<Item>
 
+    /// which tab appear selected
+    @State private var tabSelected  = 0
+    
     var body: some View {
-        List {
-            ForEach(items) { item in
-                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-            }
-            .onDelete(perform: deleteItems)
-        }
-        .toolbar {
-            #if os(iOS)
-            EditButton()
-            #endif
-
-            Button(action: addItem) {
-                Label("Add Item", systemImage: "plus")
-            }
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+        TabView(selection: $tabSelected){
+            HomeView()
+                .tabItem
+                {
+                    Label("Accueil", systemImage: "list.dash")
+                }.tag(0)
+            ListGamesView()
+                .tabItem{
+                    Label("Jeux", systemImage: "rectangle.and.text.magnifyingglass")
+                }.tag(1)
+            EditorListView()
+                .tabItem{
+                    Label("Éditeurs", systemImage: "rectangle.and.text.magnifyingglass")
+                }.tag(2)
+            ExhibitorListView()
+                .tabItem{
+                    Label("Exposant", systemImage: "list.dash")
+                }.tag(3)
         }
     }
 }
