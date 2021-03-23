@@ -26,7 +26,7 @@ struct ContentView: View {
                 {
                     Label("Accueil", systemImage: "list.dash")
                 }.tag(0)
-            ListGamesView()
+            Text("Vue de liste games")
                 .tabItem{
                     Label("Jeux", systemImage: "rectangle.and.text.magnifyingglass")
                 }.tag(1)

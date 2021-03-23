@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Editor: Identifiable, Encodable {
+class ExposantEditor: Identifiable, Encodable {
     private(set) var id: Int
     private(set) var name: String
     private(set) var address: String

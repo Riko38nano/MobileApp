@@ -8,20 +8,20 @@
 import Foundation
 
 class Game : Identifiable, Encodable{
-    private(set) var id: Int
+    var id =  UUID()
     private(set) var name: String
     private(set) var category: String
     private(set) var min_yearold: Int
     private(set) var duration: Int
-    private(set) var editor: Editor
+    private(set) var exposantEditor: Int
     private(set) var proto: Bool
     
-    init(id: Int, name: String, min_yearold: Int, duration: Int, editor: Editor, proto: Bool) {
-        self.id = id
+    init(name: String, category: String, min_yearold: Int, duration: Int, exposantEditor: Int, proto: Bool) {
         self.name = name
+        self.category = category
         self.min_yearold = min_yearold
         self.duration = duration
-        self.editor = editor
+        self.exposantEditor = exposantEditor
         self.proto = proto
     }
 }
