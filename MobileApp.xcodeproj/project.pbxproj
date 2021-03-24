@@ -11,6 +11,7 @@
 		B760913C2609FD36001B9374 /* FestivalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B760913B2609FD36001B9374 /* FestivalDetailView.swift */; };
 		B760913F260A06AA001B9374 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B760913E260A06AA001B9374 /* MenuView.swift */; };
 		B7609144260A0A0A001B9374 /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7609143260A0A0A001B9374 /* Modifier.swift */; };
+		B7C4B9E6260B841200C9EC36 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C4B9E5260B841200C9EC36 /* SwiftUIView.swift */; };
 		B7F625C525FA11E1007015B4 /* MobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F625C425FA11E1007015B4 /* MobileApp.swift */; };
 		B7F625C725FA11E1007015B4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F625C625FA11E1007015B4 /* ContentView.swift */; };
 		B7F625C925FA11E2007015B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7F625C825FA11E2007015B4 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		B760913B2609FD36001B9374 /* FestivalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalDetailView.swift; sourceTree = "<group>"; };
 		B760913E260A06AA001B9374 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		B7609143260A0A0A001B9374 /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
+		B7C4B9E5260B841200C9EC36 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		B7F625C125FA11E1007015B4 /* MobileApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7F625C425FA11E1007015B4 /* MobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileApp.swift; sourceTree = "<group>"; };
 		B7F625C625FA11E1007015B4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				B760913B2609FD36001B9374 /* FestivalDetailView.swift */,
+				B7C4B9E5260B841200C9EC36 /* SwiftUIView.swift */,
 			);
 			path = FestivalUI;
 			sourceTree = "<group>";
@@ -115,7 +118,6 @@
 				B7F625EC25FA204E007015B4 /* Helper */,
 				B7F625DD25FA1B4B007015B4 /* Model */,
 				B7F625DC25FA1B40007015B4 /* ViewModel */,
-				B7F625DB25FA1B37007015B4 /* Intent */,
 				B7F625DA25FA1B2F007015B4 /* View */,
 				B7F625C425FA11E1007015B4 /* MobileApp.swift */,
 				B7F625C625FA11E1007015B4 /* ContentView.swift */,
@@ -147,13 +149,6 @@
 				B760913E260A06AA001B9374 /* MenuView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		B7F625DB25FA1B37007015B4 /* Intent */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Intent;
 			sourceTree = "<group>";
 		};
 		B7F625DC25FA1B40007015B4 /* ViewModel */ = {
@@ -254,6 +249,7 @@
 			files = (
 				B7F625CE25FA11E2007015B4 /* Persistence.swift in Sources */,
 				B7F625F525FA2250007015B4 /* Game.swift in Sources */,
+				B7C4B9E6260B841200C9EC36 /* SwiftUIView.swift in Sources */,
 				B7F625F825FA2AC3007015B4 /* ExposantEditor.swift in Sources */,
 				B7F6260C25FA3638007015B4 /* GameView.swift in Sources */,
 				B7F625C725FA11E1007015B4 /* ContentView.swift in Sources */,
