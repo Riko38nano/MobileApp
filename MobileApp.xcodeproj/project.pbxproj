@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B560D8FB260D54F400A7122D /* Hobby.swift in Sources */ = {isa = PBXBuildFile; fileRef = B560D8FA260D54F400A7122D /* Hobby.swift */; };
 		B76091322609F694001B9374 /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76091312609F694001B9374 /* Festival.swift */; };
 		B760913C2609FD36001B9374 /* FestivalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B760913B2609FD36001B9374 /* FestivalDetailView.swift */; };
 		B760913F260A06AA001B9374 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B760913E260A06AA001B9374 /* MenuView.swift */; };
@@ -30,7 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B560D8FA260D54F400A7122D /* Hobby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hobby.swift; sourceTree = "<group>"; };
 		B76091312609F694001B9374 /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		B760913B2609FD36001B9374 /* FestivalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalDetailView.swift; sourceTree = "<group>"; };
 		B760913E260A06AA001B9374 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 				B76091372609FCA4001B9374 /* GameUI */,
 				B7F625E125FA1C5D007015B4 /* HomeView.swift */,
 				B760913E260A06AA001B9374 /* MenuView.swift */,
-				B560D8FA260D54F400A7122D /* Hobby.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -262,7 +259,6 @@
 				B7609144260A0A0A001B9374 /* Modifier.swift in Sources */,
 				B7F6260425FA34F4007015B4 /* Contact.swift in Sources */,
 				B7F625E525FA1E7F007015B4 /* EditorListView.swift in Sources */,
-				B560D8FB260D54F400A7122D /* Hobby.swift in Sources */,
 				B760913C2609FD36001B9374 /* FestivalDetailView.swift in Sources */,
 				B7F625E225FA1C5D007015B4 /* HomeView.swift in Sources */,
 				B7F625C525FA11E1007015B4 /* MobileApp.swift in Sources */,
