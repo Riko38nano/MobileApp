@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5097BB0261100A20047764E /* GameDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5097BAF261100A20047764E /* GameDetail.swift */; };
+		B5097BB6261130430047764E /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5097BB5261130430047764E /* ViewRouter.swift */; };
+		B5097BB826113AD30047764E /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5097BB726113AD30047764E /* Zone.swift */; };
+		B546DBFC260E18D200B49AE6 /* GameListe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B546DBFB260E18D200B49AE6 /* GameListe.swift */; };
 		B76091322609F694001B9374 /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76091312609F694001B9374 /* Festival.swift */; };
 		B760913C2609FD36001B9374 /* FestivalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B760913B2609FD36001B9374 /* FestivalDetailView.swift */; };
-		B760913F260A06AA001B9374 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B760913E260A06AA001B9374 /* MenuView.swift */; };
 		B7609144260A0A0A001B9374 /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7609143260A0A0A001B9374 /* Modifier.swift */; };
 		B7C4B9E6260B841200C9EC36 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C4B9E5260B841200C9EC36 /* SwiftUIView.swift */; };
 		B7F625C525FA11E1007015B4 /* MobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F625C425FA11E1007015B4 /* MobileApp.swift */; };
@@ -25,13 +28,15 @@
 		B7F625F825FA2AC3007015B4 /* ExposantEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F625F725FA2AC3007015B4 /* ExposantEditor.swift */; };
 		B7F6260125FA2F2B007015B4 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6260025FA2F2B007015B4 /* GameViewModel.swift */; };
 		B7F6260425FA34F4007015B4 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F625FA25FA2D5B007015B4 /* Contact.swift */; };
-		B7F6260C25FA3638007015B4 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F6260B25FA3638007015B4 /* GameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B5097BAF261100A20047764E /* GameDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetail.swift; sourceTree = "<group>"; };
+		B5097BB5261130430047764E /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		B5097BB726113AD30047764E /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
+		B546DBFB260E18D200B49AE6 /* GameListe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListe.swift; sourceTree = "<group>"; };
 		B76091312609F694001B9374 /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		B760913B2609FD36001B9374 /* FestivalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalDetailView.swift; sourceTree = "<group>"; };
-		B760913E260A06AA001B9374 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		B7609143260A0A0A001B9374 /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
 		B7C4B9E5260B841200C9EC36 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		B7F625C125FA11E1007015B4 /* MobileApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,7 +54,6 @@
 		B7F625F725FA2AC3007015B4 /* ExposantEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExposantEditor.swift; sourceTree = "<group>"; };
 		B7F625FA25FA2D5B007015B4 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		B7F6260025FA2F2B007015B4 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
-		B7F6260B25FA3638007015B4 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +70,8 @@
 		B76091372609FCA4001B9374 /* GameUI */ = {
 			isa = PBXGroup;
 			children = (
-				B7F6260B25FA3638007015B4 /* GameView.swift */,
+				B546DBFB260E18D200B49AE6 /* GameListe.swift */,
+				B5097BAF261100A20047764E /* GameDetail.swift */,
 			);
 			path = GameUI;
 			sourceTree = "<group>";
@@ -146,7 +151,7 @@
 				B76091382609FCC8001B9374 /* EditorUI */,
 				B76091372609FCA4001B9374 /* GameUI */,
 				B7F625E125FA1C5D007015B4 /* HomeView.swift */,
-				B760913E260A06AA001B9374 /* MenuView.swift */,
+				B5097BB726113AD30047764E /* Zone.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				B7609143260A0A0A001B9374 /* Modifier.swift */,
+				B5097BB5261130430047764E /* ViewRouter.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -249,21 +255,23 @@
 			files = (
 				B7F625CE25FA11E2007015B4 /* Persistence.swift in Sources */,
 				B7F625F525FA2250007015B4 /* Game.swift in Sources */,
+				B5097BB826113AD30047764E /* Zone.swift in Sources */,
 				B7C4B9E6260B841200C9EC36 /* SwiftUIView.swift in Sources */,
 				B7F625F825FA2AC3007015B4 /* ExposantEditor.swift in Sources */,
-				B7F6260C25FA3638007015B4 /* GameView.swift in Sources */,
 				B7F625C725FA11E1007015B4 /* ContentView.swift in Sources */,
-				B760913F260A06AA001B9374 /* MenuView.swift in Sources */,
 				B7F6260125FA2F2B007015B4 /* GameViewModel.swift in Sources */,
 				B76091322609F694001B9374 /* Festival.swift in Sources */,
 				B7609144260A0A0A001B9374 /* Modifier.swift in Sources */,
+				B546DBFC260E18D200B49AE6 /* GameListe.swift in Sources */,
 				B7F6260425FA34F4007015B4 /* Contact.swift in Sources */,
 				B7F625E525FA1E7F007015B4 /* EditorListView.swift in Sources */,
 				B760913C2609FD36001B9374 /* FestivalDetailView.swift in Sources */,
 				B7F625E225FA1C5D007015B4 /* HomeView.swift in Sources */,
+				B5097BB6261130430047764E /* ViewRouter.swift in Sources */,
 				B7F625C525FA11E1007015B4 /* MobileApp.swift in Sources */,
 				B7F625D125FA11E2007015B4 /* MobileApp.xcdatamodeld in Sources */,
 				B7F625E825FA1F72007015B4 /* ExhibitorListView.swift in Sources */,
+				B5097BB0261100A20047764E /* GameDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

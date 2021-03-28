@@ -1,15 +1,20 @@
 //
-//  EditorView.swift
+//  GameListe.swift
 //  MobileApp
 //
-//  Created by etud on 11/03/2021.
+//  Created by Rogerio MENSAH on 26/03/2021.
 //
+
 
 import SwiftUI
 
+struct Person: Identifiable{
+    var id = UUID()
+    let imageName = "logEditor"
+    var name, etude:String
+}
 
-
-struct EditorListView: View {
+struct GameListe: View {
     @State var searchText = ""
     @State var isSearching = false
     
@@ -26,23 +31,26 @@ struct EditorListView: View {
     var body: some View {
         NavigationView {
             if #available(iOS 14.0, *) {
-                
                 ScrollView {
-                    
-                    SearchBarEditor(searchText: $searchText, isSearching: $isSearching)
-                    
-                    ForEach(self.persons.filter(filterSearch)){ person in
-                        NavigationLink(destination: Text("sbcvS"))
-                        {
-                            HStack {
-                                EditorRow(user: person)
-                                Spacer()
-                            }.padding()
-                           
+                    SearchBar(searchText: $searchText, isSearching: $isSearching)
+                    LazyVGrid(columns: [
+                        GridItem(.flexible(minimum: 50, maximum: 200), spacing: 16, alignment: .top),
+                        GridItem(.flexible(minimum: 50, maximum: 200), spacing: 16, alignment: .top),
+                        GridItem(.flexible(minimum: 50, maximum: 200), spacing: 16),
+                    ], alignment: .leading, spacing: 16, content: {
+                        ForEach(self.persons.filter(filterSearch)){ person in
+                            NavigationLink(destination: GameDetail())
+                            {
+                                HStack {
+                                    GameRow(user: person)
+                                    Spacer()
+                                }.padding()
+                               
+                            }
                         }
-                    }
-                }
-                .navigationTitle("Editeurs")
+                    }).padding(.horizontal, 12)
+                }.navigationTitle("Jeux")
+                
             } else {
                 // Fallback on earlier versions
             }
@@ -51,13 +59,14 @@ struct EditorListView: View {
     }
 }
 
-struct EditorListView_Previews: PreviewProvider {
+struct GameListe_Previews: PreviewProvider {
     static var previews: some View {
-        EditorListView()
+        GameListe()
     }
 }
 
-struct SearchBarEditor: View {
+
+struct SearchBar: View {
     
     @Binding var searchText: String
     @Binding var isSearching: Bool
@@ -113,21 +122,29 @@ struct SearchBarEditor: View {
     }
 }
 
-struct EditorRow: View {
+struct GameRow: View {
     let user: Person
     
     var body: some View {
-        HStack {
+    
+        VStack(alignment: .leading, spacing: 4) {
+            
             Image(user.imageName)
                 .resizable()
-                .clipShape(Circle())
-                .overlay(Circle().stroke(Color.black, lineWidth: 4))
-                .frame(width: 70, height: 70)
-            VStack (alignment: .leading) {
-                Text(user.name).font(.headline)
-                Text(user.etude).font(.subheadline).lineLimit(nil)
-                }.padding(.leading, 8)
-            }.padding(.init(top: 12, leading: 0, bottom: 12, trailing: 0))
-             .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                .scaledToFit()
+                .cornerRadius(22)
+            
+            Text(user.name)
+                .font(.system(size: 10, weight: .semibold))
+                .padding(.top, 4)
+            Text(user.etude)
+                .font(.system(size: 9, weight: .regular))
+            Text(user.name)
+                .font(.system(size: 9, weight: .regular))
+                .foregroundColor(.gray)
+            
+            Spacer()
+        }
     }
 }
+

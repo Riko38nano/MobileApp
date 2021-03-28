@@ -7,37 +7,19 @@
 
 import SwiftUI
 import CoreData
+import Foundation
 
-struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
+struct ContentView: View{
 
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
-    /// which tab appear selected
-    @State private var tabSelected  = 0
+    @EnvironmentObject var viewRouter: ViewRouter
     
     var body: some View {
-        TabView(selection: $tabSelected){
+        switch viewRouter.currentPage {
+        case .page1:
             HomeView()
-                .tabItem
-                {
-                    Label("Accueil", systemImage: "list.dash")
-                }.tag(0)
-            Text("Vue de liste games")
-                .tabItem{
-                    Label("Jeux", systemImage: "rectangle.and.text.magnifyingglass")
-                }.tag(1)
-            EditorListView()
-                .tabItem{
-                    Label("Éditeurs", systemImage: "rectangle.and.text.magnifyingglass")
-                }.tag(2)
-            ExhibitorListView()
-                .tabItem{
-                    Label("Exposant", systemImage: "list.dash")
-                }.tag(3)
+        case .page2:
+            Zone()
+                .transition(.scale)
         }
     }
 }
@@ -51,6 +33,28 @@ private let itemFormatter: DateFormatter = {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView().environmentObject(ViewRouter())
     }
 }
+
+
+
+
+//struct CardOnHome: View {
+//    @Binding var showGames: Bool
+//    @Binding var showEditors: Bool
+//    @Binding var showExposants: Bool
+//    var body: some View {
+//        HStack(spacing: 10) {
+//            BlockOnCard(title: "Jeux", nb: 5, imageName: "logEditor").onTapGesture {
+//                self.showGames.toggle()
+//            }
+//            BlockOnCard(title: "Exposant",nb: 5, imageName: "logEditor").onTapGesture {
+//                self.showExposants.toggle()
+//            }
+//            BlockOnCard(title: "Editor", nb: 5,imageName: "Logo1").onTapGesture {
+//                self.showEditors.toggle()
+//            }
+//        }
+//    }
+//}
