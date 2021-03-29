@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B5003153261271EF00F7A6B7 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5097BB726113AD30047764E /* Zone.swift */; };
+		B50031542612749800F7A6B7 /* MobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F625C425FA11E1007015B4 /* MobileApp.swift */; };
 		B5097BB0261100A20047764E /* GameDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5097BAF261100A20047764E /* GameDetail.swift */; };
 		B5097BB6261130430047764E /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5097BB5261130430047764E /* ViewRouter.swift */; };
-		B5097BB826113AD30047764E /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5097BB726113AD30047764E /* Zone.swift */; };
 		B546DBFC260E18D200B49AE6 /* GameListe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B546DBFB260E18D200B49AE6 /* GameListe.swift */; };
+		B561502426128A5900452459 /* GameCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B561502326128A5900452459 /* GameCard.swift */; };
+		B561502626128B1A00452459 /* ZoneDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B561502526128B1900452459 /* ZoneDetail.swift */; };
+		B56150282612901B00452459 /* EditorDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56150272612901B00452459 /* EditorDetail.swift */; };
+		B561502A261294AC00452459 /* ExhibitorDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5615029261294AC00452459 /* ExhibitorDetail.swift */; };
 		B76091322609F694001B9374 /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76091312609F694001B9374 /* Festival.swift */; };
-		B760913C2609FD36001B9374 /* FestivalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B760913B2609FD36001B9374 /* FestivalDetailView.swift */; };
 		B7609144260A0A0A001B9374 /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7609143260A0A0A001B9374 /* Modifier.swift */; };
-		B7C4B9E6260B841200C9EC36 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C4B9E5260B841200C9EC36 /* SwiftUIView.swift */; };
-		B7F625C525FA11E1007015B4 /* MobileApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F625C425FA11E1007015B4 /* MobileApp.swift */; };
 		B7F625C725FA11E1007015B4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F625C625FA11E1007015B4 /* ContentView.swift */; };
 		B7F625C925FA11E2007015B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7F625C825FA11E2007015B4 /* Assets.xcassets */; };
 		B7F625CC25FA11E2007015B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7F625CB25FA11E2007015B4 /* Preview Assets.xcassets */; };
@@ -35,10 +37,12 @@
 		B5097BB5261130430047764E /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
 		B5097BB726113AD30047764E /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
 		B546DBFB260E18D200B49AE6 /* GameListe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListe.swift; sourceTree = "<group>"; };
+		B561502326128A5900452459 /* GameCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCard.swift; sourceTree = "<group>"; };
+		B561502526128B1900452459 /* ZoneDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneDetail.swift; sourceTree = "<group>"; };
+		B56150272612901B00452459 /* EditorDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorDetail.swift; sourceTree = "<group>"; };
+		B5615029261294AC00452459 /* ExhibitorDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExhibitorDetail.swift; sourceTree = "<group>"; };
 		B76091312609F694001B9374 /* Festival.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
-		B760913B2609FD36001B9374 /* FestivalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalDetailView.swift; sourceTree = "<group>"; };
 		B7609143260A0A0A001B9374 /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
-		B7C4B9E5260B841200C9EC36 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		B7F625C125FA11E1007015B4 /* MobileApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7F625C425FA11E1007015B4 /* MobileApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileApp.swift; sourceTree = "<group>"; };
 		B7F625C625FA11E1007015B4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,11 +71,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B50031522612713100F7A6B7 /* Zone */ = {
+			isa = PBXGroup;
+			children = (
+				B5097BB726113AD30047764E /* Zone.swift */,
+				B561502526128B1900452459 /* ZoneDetail.swift */,
+			);
+			path = Zone;
+			sourceTree = "<group>";
+		};
 		B76091372609FCA4001B9374 /* GameUI */ = {
 			isa = PBXGroup;
 			children = (
 				B546DBFB260E18D200B49AE6 /* GameListe.swift */,
 				B5097BAF261100A20047764E /* GameDetail.swift */,
+				B561502326128A5900452459 /* GameCard.swift */,
 			);
 			path = GameUI;
 			sourceTree = "<group>";
@@ -80,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				B7F625E425FA1E7F007015B4 /* EditorListView.swift */,
+				B56150272612901B00452459 /* EditorDetail.swift */,
 			);
 			path = EditorUI;
 			sourceTree = "<group>";
@@ -88,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				B7F625E725FA1F72007015B4 /* ExhibitorListView.swift */,
+				B5615029261294AC00452459 /* ExhibitorDetail.swift */,
 			);
 			path = ExhibitorUI;
 			sourceTree = "<group>";
@@ -95,8 +111,6 @@
 		B760913A2609FCFB001B9374 /* FestivalUI */ = {
 			isa = PBXGroup;
 			children = (
-				B760913B2609FD36001B9374 /* FestivalDetailView.swift */,
-				B7C4B9E5260B841200C9EC36 /* SwiftUIView.swift */,
 			);
 			path = FestivalUI;
 			sourceTree = "<group>";
@@ -146,12 +160,12 @@
 		B7F625DA25FA1B2F007015B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B50031522612713100F7A6B7 /* Zone */,
 				B760913A2609FCFB001B9374 /* FestivalUI */,
 				B76091392609FCD4001B9374 /* ExhibitorUI */,
 				B76091382609FCC8001B9374 /* EditorUI */,
 				B76091372609FCA4001B9374 /* GameUI */,
 				B7F625E125FA1C5D007015B4 /* HomeView.swift */,
-				B5097BB726113AD30047764E /* Zone.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -255,20 +269,22 @@
 			files = (
 				B7F625CE25FA11E2007015B4 /* Persistence.swift in Sources */,
 				B7F625F525FA2250007015B4 /* Game.swift in Sources */,
-				B5097BB826113AD30047764E /* Zone.swift in Sources */,
-				B7C4B9E6260B841200C9EC36 /* SwiftUIView.swift in Sources */,
+				B561502A261294AC00452459 /* ExhibitorDetail.swift in Sources */,
 				B7F625F825FA2AC3007015B4 /* ExposantEditor.swift in Sources */,
 				B7F625C725FA11E1007015B4 /* ContentView.swift in Sources */,
+				B561502426128A5900452459 /* GameCard.swift in Sources */,
 				B7F6260125FA2F2B007015B4 /* GameViewModel.swift in Sources */,
 				B76091322609F694001B9374 /* Festival.swift in Sources */,
+				B5003153261271EF00F7A6B7 /* Zone.swift in Sources */,
 				B7609144260A0A0A001B9374 /* Modifier.swift in Sources */,
 				B546DBFC260E18D200B49AE6 /* GameListe.swift in Sources */,
+				B56150282612901B00452459 /* EditorDetail.swift in Sources */,
 				B7F6260425FA34F4007015B4 /* Contact.swift in Sources */,
 				B7F625E525FA1E7F007015B4 /* EditorListView.swift in Sources */,
-				B760913C2609FD36001B9374 /* FestivalDetailView.swift in Sources */,
+				B50031542612749800F7A6B7 /* MobileApp.swift in Sources */,
 				B7F625E225FA1C5D007015B4 /* HomeView.swift in Sources */,
+				B561502626128B1A00452459 /* ZoneDetail.swift in Sources */,
 				B5097BB6261130430047764E /* ViewRouter.swift in Sources */,
-				B7F625C525FA11E1007015B4 /* MobileApp.swift in Sources */,
 				B7F625D125FA11E2007015B4 /* MobileApp.xcdatamodeld in Sources */,
 				B7F625E825FA1F72007015B4 /* ExhibitorListView.swift in Sources */,
 				B5097BB0261100A20047764E /* GameDetail.swift in Sources */,

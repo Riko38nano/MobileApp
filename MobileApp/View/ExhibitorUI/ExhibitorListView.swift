@@ -30,7 +30,7 @@ struct ExhibitorListView: View {
                     SearchBarExhibitor(searchText: $searchText, isSearching: $isSearching)
                     
                     ForEach(self.persons.filter(filterSearch)){ person in
-                        NavigationLink(destination: Text("sbcvS"))
+                        NavigationLink(destination: ExhibitorDetail())
                         {
                             HStack {
                                 ExhibitorRow(user: person)
@@ -40,7 +40,7 @@ struct ExhibitorListView: View {
                         }
                     }
                 }
-                .navigationTitle("Editeurs")
+                .navigationTitle("Exposants")
             } else {
                 // Fallback on earlier versions
             }

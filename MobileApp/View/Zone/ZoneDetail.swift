@@ -1,15 +1,13 @@
 //
-//  EditorView.swift
+//  ZoneDetail.swift
 //  MobileApp
 //
-//  Created by etud on 11/03/2021.
+//  Created by Rogerio MENSAH on 30/03/2021.
 //
 
 import SwiftUI
 
-
-
-struct EditorListView: View {
+struct ZoneDetail: View {
     @State var searchText = ""
     @State var isSearching = false
     
@@ -23,41 +21,43 @@ struct EditorListView: View {
         return ret
     }
     
+    private let gridItems = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
     var body: some View {
         NavigationView {
             if #available(iOS 14.0, *) {
-                
                 ScrollView {
-                    
-                    SearchBarEditor(searchText: $searchText, isSearching: $isSearching)
-                    
-                    ForEach(self.persons.filter(filterSearch)){ person in
-                        NavigationLink(destination: EditorDetail())
-                        {
-                            HStack {
-                                EditorRow(user: person)
-                                Spacer()
-                            }.padding()
-                           
+                    ZoneSearchBar(searchText: $searchText, isSearching: $isSearching)
+                    LazyVGrid(columns: gridItems, content: {
+                        ForEach(self.persons.filter(filterSearch)){ person in
+                            NavigationLink(destination: GameDetail())
+                            {
+                                HStack {
+                                    GameCard()
+                                    Spacer()
+                                }.padding()
+                               
+                            }
                         }
-                    }
-                }
-                .navigationTitle("Editeurs")
+                    })
+                }.navigationTitle("Jeux")
+                
             } else {
                 // Fallback on earlier versions
             }
         }
-        
     }
 }
 
-struct EditorListView_Previews: PreviewProvider {
+struct ZoneDetail_Previews: PreviewProvider {
     static var previews: some View {
-        EditorListView()
+        ZoneDetail()
     }
 }
 
-struct SearchBarEditor: View {
+struct ZoneSearchBar: View {
     
     @Binding var searchText: String
     @Binding var isSearching: Bool
@@ -110,24 +110,5 @@ struct SearchBarEditor: View {
             }
             
         }
-    }
-}
-
-struct EditorRow: View {
-    let user: Person
-    
-    var body: some View {
-        HStack {
-            Image(user.imageName)
-                .resizable()
-                .clipShape(Circle())
-                .overlay(Circle().stroke(Color.black, lineWidth: 4))
-                .frame(width: 70, height: 70)
-            VStack (alignment: .leading) {
-                Text(user.name).font(.headline)
-                Text(user.etude).font(.subheadline).lineLimit(nil)
-                }.padding(.leading, 8)
-            }.padding(.init(top: 12, leading: 0, bottom: 12, trailing: 0))
-             .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
     }
 }

@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct MobileApp: App {
-    let persistenceController = PersistenceController.shared
     @StateObject var viewRouter = ViewRouter()
     var body: some Scene {
         WindowGroup {
