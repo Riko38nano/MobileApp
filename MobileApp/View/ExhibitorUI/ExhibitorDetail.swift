@@ -13,7 +13,7 @@ struct ExhibitorDetail: View {
         
         VStack(spacing: 40){
             VStack{
-                Text("Exposant: Nom de l'editeur").modifier(FontModifier(style: .title))
+                Text("Exposant: Nom de l'exposant").modifier(FontModifier(style: .title))
             }
             VStack{
                 ScrollView(.horizontal, showsIndicators: false) {

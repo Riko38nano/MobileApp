@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GameDetail: View {
+    @State private var isShowingSheetExposant = false
+    @State private var isShowingSheetEditor = false
     var body: some View {
         ScrollView{
             VStack{
@@ -18,8 +20,91 @@ struct GameDetail: View {
                     }.padding()
                     VStack(spacing: 30.0){
                         HStack{
-                            CardEditorExposant()
-                            CardEditorExposant()
+                            ZStack{
+                                VStack(alignment: .leading){
+                                    Text("Exposant")
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(.white)
+                                        .padding(.top, 8)
+                                        .padding(.leading)
+                                    Text("505 Games France")
+                                        .font(.system(size: 13, weight: .bold))
+                                        .foregroundColor(.white)
+                                        .padding(.top, 8)
+                                        .padding(.leading)
+                                    HStack{
+                                        Button(action: { self.isShowingSheetExposant.toggle() }) {
+                                            Text("voir")
+                                                .font(.subheadline).bold()
+                                                .foregroundColor(.white)
+                                                .padding(.horizontal, 16)
+                                                .padding(.vertical, 8)
+                                                .overlay(
+                                                    RoundedRectangle(cornerRadius: 20)
+                                                        .fill(Color.white.opacity(0.25))
+                                                )
+                                                .frame(width: 100, height: 24)
+                                        }
+                                        .sheet(isPresented: $isShowingSheetExposant) {
+                                            ExhibitorDetail()
+                                        }
+                                        
+                                        
+                                        Image("logEditor")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 68, height: 68)
+                                            .padding([.bottom, .trailing], 4)
+                                            
+                                    }
+                                }
+                            }
+                            .background(Color.blue)
+                            .cornerRadius(12)
+                            .shadow(color: .green, radius: 6, x: 0.0, y: 0.0)
+                            
+                            ZStack{
+                                VStack(alignment: .leading){
+                                    Text("Editor")
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(.white)
+                                        .padding(.top, 8)
+                                        .padding(.leading)
+                                    Text("505 Games France")
+                                        .font(.system(size: 13, weight: .bold))
+                                        .foregroundColor(.white)
+                                        .padding(.top, 8)
+                                        .padding(.leading)
+                                    HStack{
+                                        Button(action: { self.isShowingSheetExposant.toggle() }) {
+                                            Text("voir")
+                                                .font(.subheadline).bold()
+                                                .foregroundColor(.white)
+                                                .padding(.horizontal, 16)
+                                                .padding(.vertical, 8)
+                                                .overlay(
+                                                    RoundedRectangle(cornerRadius: 20)
+                                                        .fill(Color.white.opacity(0.25))
+                                                )
+                                                .frame(width: 100, height: 24)
+                                        }
+                                        .sheet(isPresented: $isShowingSheetEditor) {
+                                            EditorDetail()
+                                        }
+                                        
+                                        
+                                        Image("logEditor")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 68, height: 68)
+                                            .padding([.bottom, .trailing], 4)
+                                            
+                                    }
+                                }
+                            }
+                            .background(Color.blue)
+                            .cornerRadius(12)
+                            .shadow(color: .green, radius: 6, x: 0.0, y: 0.0)
                         }
                         .frame(maxWidth: .infinity)
                         

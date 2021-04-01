@@ -49,8 +49,8 @@ struct HomeView: View {
                     
                     VStack(spacing: 10.0){
                         Text("L'adresse").bold().modifier(FontModifier(style: .title))
-                        Text("98 rue jean françois breton")
-                        Link(destination: URL(string: "https://www.apple.com")!) {
+                        Text("Le Corum")
+                        Link(destination: URL(string: "https://www.google.com/maps/dir//corum+montpellier/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x12b6af0b94e490fd:0x3cf7e3f07d11afd3?sa=X&ved=2ahUKEwjP5ovExtzvAhWhA2MBHQ1JB5QQ9RcwHnoECDIQBA")!) {
                             Text("Voir l'adresse")
                                 .foregroundColor(.white)
                                 .frame(width: 200, height: 50)
@@ -72,23 +72,6 @@ struct HomeView: View {
                                 }
                         }
                         Text("Jeu par Zone").font(.title).fontWeight(.heavy)
-                        HStack{
-                            VStack(alignment: .center, spacing: 4.0) {
-                                Text("A l'entrée").bold().modifier(FontModifier(style: .subheadline))
-                                Text(String(15)).modifier(FontModifier(style: .caption))
-                                }
-                            .modifier(FontModifier())
-                            VStack(alignment: .center, spacing: 4.0) {
-                                Text("Premium").bold().modifier(FontModifier(style: .subheadline))
-                                Text(String(15)).modifier(FontModifier(style: .caption))
-                                }
-                            .modifier(FontModifier())
-                            VStack(alignment: .center, spacing: 4.0) {
-                                Text("A l'entrée").bold().modifier(FontModifier(style: .subheadline))
-                                Text(String(15)).modifier(FontModifier(style: .caption))
-                                }
-                            .modifier(FontModifier())
-                        }
                     }.padding(.horizontal, 24).frame(height: 230).background(Color.blue.opacity(0.2)).cornerRadius(36)
                 }
             }
