@@ -46,12 +46,12 @@ struct GameDetail: View {
                                                 )
                                                 .frame(width: 100, height: 24)
                                         }
-                                        .sheet(isPresented: $isShowingSheetExposant) {
-                                            ExhibitorDetail()
-                                        }
+//                                        .sheet(isPresented: $isShowingSheetExposant) {
+//                                            ExhibitorDetail()
+//                                        }
                                         
                                         
-                                        Image("logEditor")
+                                        Image("exposantIcon")
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 68, height: 68)
@@ -89,12 +89,12 @@ struct GameDetail: View {
                                                 )
                                                 .frame(width: 100, height: 24)
                                         }
-                                        .sheet(isPresented: $isShowingSheetEditor) {
-                                            EditorDetail()
-                                        }
+//                                        .sheet(isPresented: $isShowingSheetEditor) {
+//                                            EditorDetail()
+//                                        }
                                         
                                         
-                                        Image("logEditor")
+                                        Image("editorIcon")
                                             .resizable()
                                             .scaledToFit()
                                             .frame(width: 68, height: 68)
@@ -110,7 +110,7 @@ struct GameDetail: View {
                         .frame(maxWidth: .infinity)
                         
                         HStack(spacing: 20.0) {
-                            RingView(color1: #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1), color2: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), width: 88, height: 88, age: CGFloat(gameView.game.min_yearold))
+                            RingView(age: CGFloat(gameView.game.min_yearold))
                                 .animation(Animation.easeInOut.delay(0.3))
                             
                             VStack(alignment: .leading, spacing: 8.0) {
@@ -172,54 +172,13 @@ struct GameDetail_Previews: PreviewProvider {
     }
 }
 
-struct CardEditorExposant: View {
-var body: some View {
-    ZStack{
-        VStack(alignment: .leading){
-            Text("Exposant")
-                .fontWeight(.heavy)
-                .foregroundColor(.white)
-                .padding(.top, 8)
-                .padding(.leading)
-            Text("505 Games France")
-                .font(.system(size: 13, weight: .bold))
-                .foregroundColor(.white)
-                .padding(.top, 8)
-                .padding(.leading)
-            HStack{
-                Text("voir")
-                    .font(.subheadline).bold()
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(Color.white.opacity(0.25))
-                    )
-                    .frame(width: 100, height: 24)
-                
-                Image("logEditor")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 68, height: 68)
-                    .padding([.bottom, .trailing], 4)
-                
-            }
-        }
-    }
-    .background(Color.blue)
-    .cornerRadius(12)
-    .shadow(color: .green, radius: 6, x: 0.0, y: 0.0)
-    
-}
-}
 
 struct RingView: View {
-var color1 = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
-var color2 = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-var width: CGFloat = 300
-var height: CGFloat = 300
-var age: CGFloat = 88
+let color1 = #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1)
+var color2 = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+var width: CGFloat = 88
+var height: CGFloat = 88
+var age: CGFloat
 
 var body: some View {
     let multiplier = width / 44

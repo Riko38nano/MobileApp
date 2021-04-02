@@ -10,6 +10,7 @@ import Foundation
 
 struct Zone: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @ObservedObject var zoneViewModel = ZoneViewModel()
     var body: some View {
         
         VStack(spacing: 40){
@@ -29,46 +30,25 @@ struct Zone: View {
             .clipShape(Circle())
             .opacity(1)
             
+            
             VStack {
+                List(zoneViewModel.Zones) { zone in
+                    HStack {
+                            Image(systemName: "square.and.arrow.up")
+                                .font(.title)
+                            Text("Standart")
+                                .fontWeight(.semibold)
+                                .font(.title)
+                    }.frame(minWidth: 0, maxWidth: .infinity)
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(LinearGradient(gradient: Gradient(colors: [Color(.green), Color(#colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1))]), startPoint: .leading, endPoint: .trailing))
+                    .cornerRadius(40)
+                    .padding(.horizontal, 20)
                 
-                HStack {
-                        Image(systemName: "square.and.arrow.up")
-                            .font(.title)
-                        Text("Standart")
-                            .fontWeight(.semibold)
-                            .font(.title)
-                }.frame(minWidth: 0, maxWidth: .infinity)
-                .padding()
-                .foregroundColor(.white)
-                .background(LinearGradient(gradient: Gradient(colors: [Color(.green), Color(#colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1))]), startPoint: .leading, endPoint: .trailing))
-                .cornerRadius(40)
-                .padding(.horizontal, 20)
+
+                }
                 
-                HStack {
-                        Image(systemName: "square.and.arrow.up")
-                            .font(.title)
-                        Text("Premium")
-                            .fontWeight(.semibold)
-                            .font(.title)
-                }.frame(minWidth: 0, maxWidth: .infinity)
-                .padding()
-                .foregroundColor(.white)
-                .background(LinearGradient(gradient: Gradient(colors: [Color(.green), Color(#colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1))]), startPoint: .leading, endPoint: .trailing))
-                .cornerRadius(40)
-                .padding(.horizontal, 20)
-                
-                HStack {
-                        Image(systemName: "square.and.arrow.up")
-                            .font(.title)
-                        Text("Low")
-                            .fontWeight(.semibold)
-                            .font(.title)
-                }.frame(minWidth: 0, maxWidth: .infinity)
-                .padding()
-                .foregroundColor(.white)
-                .background(LinearGradient(gradient: Gradient(colors: [Color(.green), Color(#colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1))]), startPoint: .leading, endPoint: .trailing))
-                .cornerRadius(40)
-                .padding(.horizontal, 20)
             }
         }
     }

@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ExhibitorDetail: View {
     let persons = [Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Leo", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info")]
+    var exposant: Exposant
     var body: some View {
         
         VStack(spacing: 40){
             VStack{
-                Text("Exposant: Nom de l'exposant").modifier(FontModifier(style: .title))
+                Text("Exposant: \(exposant.name) ").modifier(FontModifier(style: .title))
             }
             VStack{
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -68,6 +69,7 @@ struct ExhibitorDetail: View {
 
 struct ExhibitorDetail_Previews: PreviewProvider {
     static var previews: some View {
-        ExhibitorDetail()
+        //ExhibitorDetail()
+        Text("djgh,cbv")
     }
 }

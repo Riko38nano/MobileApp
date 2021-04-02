@@ -12,12 +12,11 @@ import SwiftUI
 struct EditorListView: View {
     @State var searchText = ""
     @State var isSearching = false
+    @ObservedObject var editorViewModel = EditorViewModel()
     
-    let persons = [Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Leo", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info")]
-    
-    private func filterSearch(person: Person) -> Bool{
+    private func filterSearch(editor: Editor) -> Bool{
         var ret = false
-        if person.name.contains(searchText) || searchText.isEmpty {
+        if editor.name.lowercased().contains(searchText.lowercased()) || searchText.isEmpty {
             ret = true
         }
         return ret
@@ -31,11 +30,11 @@ struct EditorListView: View {
                     
                     SearchBarEditor(searchText: $searchText, isSearching: $isSearching)
                     
-                    ForEach(self.persons.filter(filterSearch)){ person in
-                        NavigationLink(destination: EditorDetail())
+                    ForEach(self.editorViewModel.editors.filter(filterSearch)){ editor in
+                        NavigationLink(destination: EditorDetail(editor: editor))
                         {
                             HStack {
-                                EditorRow(user: person)
+                                EditorRow(editor: editor)
                                 Spacer()
                             }.padding()
                            
@@ -114,18 +113,17 @@ struct SearchBarEditor: View {
 }
 
 struct EditorRow: View {
-    let user: Person
+    let editor: Editor
     
     var body: some View {
         HStack {
-            Image(user.imageName)
+            Image("editorIcon")
                 .resizable()
                 .clipShape(Circle())
                 .overlay(Circle().stroke(Color.black, lineWidth: 4))
                 .frame(width: 70, height: 70)
             VStack (alignment: .leading) {
-                Text(user.name).font(.headline)
-                Text(user.etude).font(.subheadline).lineLimit(nil)
+                Text(editor.name).font(.headline)
                 }.padding(.leading, 8)
             }.padding(.init(top: 12, leading: 0, bottom: 12, trailing: 0))
              .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)

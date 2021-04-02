@@ -11,11 +11,11 @@ struct ExhibitorListView: View {
     @State var searchText = ""
     @State var isSearching = false
     
-    let persons = [Person(name:"Leoni", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Leo", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info")]
+    @ObservedObject var exposantViewModel = ExposantViewModel()
     
-    private func filterSearch(person: Person) -> Bool{
+    private func filterSearch(exposant: Exposant) -> Bool{
         var ret = false
-        if person.name.contains(searchText) || searchText.isEmpty {
+        if exposant.name.lowercased().contains(searchText.lowercased()) || searchText.isEmpty {
             ret = true
         }
         return ret
@@ -29,11 +29,11 @@ struct ExhibitorListView: View {
                     
                     SearchBarExhibitor(searchText: $searchText, isSearching: $isSearching)
                     
-                    ForEach(self.persons.filter(filterSearch)){ person in
-                        NavigationLink(destination: ExhibitorDetail())
+                    ForEach(self.exposantViewModel.exposants.filter(filterSearch)){ exposant in
+                        NavigationLink(destination: ExhibitorDetail(exposant: exposant))
                         {
                             HStack {
-                                ExhibitorRow(user: person)
+                                ExhibitorRow(exposant: exposant)
                                 Spacer()
                             }.padding()
                            
@@ -112,18 +112,17 @@ struct SearchBarExhibitor: View {
 }
 
 struct ExhibitorRow: View {
-    let user: Person
+    let exposant: Exposant
     
     var body: some View {
         HStack {
-            Image(user.imageName)
+            Image("exposantIcon")
                 .resizable()
                 .clipShape(Circle())
                 .overlay(Circle().stroke(Color.black, lineWidth: 4))
                 .frame(width: 70, height: 70)
             VStack (alignment: .leading) {
-                Text(user.name).font(.headline)
-                Text(user.etude).font(.subheadline).lineLimit(nil)
+                Text(exposant.name).font(.headline)
                 }.padding(.leading, 8)
             }.padding(.init(top: 12, leading: 0, bottom: 12, trailing: 0))
              .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)

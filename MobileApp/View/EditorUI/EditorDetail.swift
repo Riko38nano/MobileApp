@@ -9,11 +9,13 @@ import SwiftUI
 
 struct EditorDetail: View {
     let persons = [Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Leo", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info")]
+    
+    var editor: Editor
     var body: some View {
         
         VStack(spacing: 40){
             VStack{
-                Text("Editeur: Nom de l'editeur").modifier(FontModifier(style: .title))
+                Text("Editeur: \(editor.name) ").modifier(FontModifier(style: .title))
             }
             VStack{
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -68,6 +70,7 @@ struct EditorDetail: View {
 
 struct EditorDetail_Previews: PreviewProvider {
     static var previews: some View {
-        EditorDetail()
+        //EditorDetail()
+        Text("dkjfvnq")
     }
 }
