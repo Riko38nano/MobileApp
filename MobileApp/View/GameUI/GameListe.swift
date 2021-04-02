@@ -47,6 +47,11 @@ struct GameListe: View {
                                     Spacer()
                                 }.padding()
                                
+                            }.onAppear{
+                                print("juste ici")
+                                
+                                print(ExposantViewModel.getGamesByExposantId(idExposant: "6066c34be8ee772b20d3bd00").count)
+                                
                             }
                         }
                     }).padding(.horizontal, 12)

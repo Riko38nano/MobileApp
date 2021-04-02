@@ -46,9 +46,9 @@ struct GameDetail: View {
                                                 )
                                                 .frame(width: 100, height: 24)
                                         }
-//                                        .sheet(isPresented: $isShowingSheetExposant) {
-//                                            ExhibitorDetail()
-//                                        }
+                                        .sheet(isPresented: $isShowingSheetExposant) {
+                                            ExhibitorDetail(exposant: gameView.exhibitor)
+                                        }
                                         
                                         
                                         Image("exposantIcon")
@@ -77,7 +77,7 @@ struct GameDetail: View {
                                         .padding(.top, 8)
                                         .padding(.leading)
                                     HStack{
-                                        Button(action: { self.isShowingSheetExposant.toggle() }) {
+                                        Button(action: { self.isShowingSheetEditor.toggle() }) {
                                             Text("voir")
                                                 .font(.subheadline).bold()
                                                 .foregroundColor(.white)
@@ -89,9 +89,9 @@ struct GameDetail: View {
                                                 )
                                                 .frame(width: 100, height: 24)
                                         }
-//                                        .sheet(isPresented: $isShowingSheetEditor) {
-//                                            EditorDetail()
-//                                        }
+                                        .sheet(isPresented: $isShowingSheetEditor) {
+                                            EditorDetail(editor: gameView.editor)
+                                        }
                                         
                                         
                                         Image("editorIcon")

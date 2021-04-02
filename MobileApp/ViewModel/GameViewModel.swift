@@ -10,6 +10,7 @@ import Combine
 
 class GameViewModel: ObservableObject, Identifiable {
     @Published var gamesView: [GameView] = []
+    @Published var nb: Int = 0
     
     init() {
         getGames()
@@ -17,8 +18,10 @@ class GameViewModel: ObservableObject, Identifiable {
     
     func setHTTPGames( gamesView: [GameView]){
         self.gamesView = gamesView
+        self.nb = gamesView.count
     }
     func getGames() {
         Api().getGames(completion: setHTTPGames)
     }
+
 }

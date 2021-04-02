@@ -13,16 +13,16 @@ class EditorHelper{
         return editors.count
     }
     
-    static func getEditorByid(idEditor: String) -> Editor?{
-        var editors = EditorViewModel().editors
-        var edi : Editor? = nil
-        for editor in editors{
-            if editor._id == idEditor{
-                edi = editor
-                break
-            }
-            
-        }
-        return edi
-    }
+//    static func getEditorByid(idEditor: String) -> Editor?{
+//        var editors = EditorViewModel().editors
+//        var edi : Editor? = nil
+//        for editor in editors{
+//            if editor._id == idEditor{
+//                edi = editor
+//            }
+//            break
+//        }
+//       
+//        return edi
+//    }
 }

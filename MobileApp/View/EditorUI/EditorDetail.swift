@@ -21,10 +21,10 @@ struct EditorDetail: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     
                     HStack(spacing: 20) {
-                        ForEach(GameHelper.getGamesByEditorId(idEditor: editor._id)) { gameView in
+                        ForEach(self.games) { gameView in
                             GeometryReader { geometry in
                                 //GameCard(gameView: gameView)
-                                GameCard()
+                                GameCard(gameView: gameView)
                                     .rotation3DEffect(Angle(degrees:
                                         Double(geometry.frame(in: .global).minX - 30) / -20
                                     ), axis: (x: 0, y: 10, z: 0))
@@ -33,8 +33,6 @@ struct EditorDetail: View {
                         }
                     }
                     .padding(30)
-                }.onAppear{
-                    self.games = GameHelper.getGamesByEditorId(idEditor: editor._id)
                 }
                 VStack{
                     HStack {

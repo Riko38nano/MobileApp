@@ -45,22 +45,22 @@ class Api {
             .resume()
     }
     
-    func getEditors(completion: @escaping ([Editor]) -> ()) {
-            
-            guard let url = URL(string: "http://127.0.0.1:5000/api/festivals/editors") else {
-                return }
-            URLSession.shared.dataTask(with: url) { (data, _, _) in
-                guard let data = data else { fatalError("il a craché")}
-                print(data)
-                let editors = try! JSONDecoder().decode([Editor].self, from: data)
-                DispatchQueue.main.async {
-                    completion(editors)
-                }
-                
-            }
-            .resume()
-    }
-    
+//    func getEditors(completion: @escaping ([EditorView]) -> ()) {
+//
+//            guard let url = URL(string: "http://127.0.0.1:5000/api/festivals/editors") else {
+//                return }
+//            URLSession.shared.dataTask(with: url) { (data, _, _) in
+//                guard let data = data else { fatalError("il a craché")}
+//                print(data)
+//                let editors = try! JSONDecoder().decode([EditorView].self, from: data)
+//                DispatchQueue.main.async {
+//                    completion(editors)
+//                }
+//
+//            }
+//            .resume()
+//    }
+//
     func getExposants(completion: @escaping ([Exposant]) -> ()) {
             
             guard let url = URL(string: "http://127.0.0.1:5000/api/festivals/exhibitors") else {
@@ -76,6 +76,7 @@ class Api {
             }
             .resume()
     }
+    
     
     func getZones(completion: @escaping ([Zone]) -> ()) {
             

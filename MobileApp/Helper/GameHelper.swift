@@ -7,34 +7,19 @@
 
 import SwiftUI
 
-class GameHelper{
-    static func getGamesByEditorId(idEditor: String) -> [GameView]{
-        var gamesView = GameViewModel().gamesView
-        var gamesViewBack : [GameView] = []
-        for gameView in gamesView{
-            if(gameView.editor._id == idEditor){
-                gamesViewBack.append(gameView)
-            }
-        }
-        return gamesViewBack
-    }
+class GameHelper: ObservableObject{
+    @Published var Gam: Festival? = nil
     
-    
-    static func getGamesByExposantId(idExposant: String) -> [GameView]{
-        var gamesView = GameViewModel().gamesView
-        var gamesViewBack : [GameView] = []
-        for gameView in gamesView{
-            if(gameView.exhibitor._id == idExposant){
-                gamesViewBack.append(gameView)
-            }
-        }
-        return gamesViewBack
-    }
-    
-    static func nbJeux() -> Int{
-        var gamesView = GameViewModel().gamesView
-        return gamesView.count
-    }
+//    init() {
+//        getFestival()
+//    }
+//    
+//    func setHTTPFestival( festival : Festival){
+//        self.festival = festival
+//    }
+//    func getFestival() {
+//        Api().getFestival(toto: setHTTPFestival)
+//    }
 }
 
 
