@@ -12,7 +12,9 @@ struct HomeView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     //@EnvironmentObject var viewRouter: ViewRouter
     /// which tab appear selected
-    
+    @State var nbJeux = GameHelper.nbJeux()
+    @State var nbEditor = EditorHelper.getNbEditor()
+    @State var nbExposant = ExposantHelper.getNbExposant()
     @ObservedObject var festivalViewModel = FestivalViewModel()
     @State private var tabSelected  = 0
     var body: some View {
@@ -35,13 +37,13 @@ struct HomeView: View {
                     HStack(){
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 10) {
-                                BlockOnCard(title: "Jeux", nb: 5, icone: "gamecontroller").onTapGesture {
+                                BlockOnCard(title: "Jeux", nb: self.nbJeux, icone: "gamecontroller").onTapGesture {
                                     self.tabSelected = 1
                                 }
-                                BlockOnCard(title: "Exposant",nb: 5, icone: "person").onTapGesture {
+                                BlockOnCard(title: "Exposant",nb: self.nbExposant, icone: "person").onTapGesture {
                                     self.tabSelected = 3
                                 }
-                                BlockOnCard(title: "Editor", nb: 5,icone: "pencil.and.ellipsis.rectangle").onTapGesture {
+                                BlockOnCard(title: "Editor", nb: self.nbEditor,icone: "pencil.and.ellipsis.rectangle").onTapGesture {
                                     self.tabSelected = 2
                                 }
                             }
@@ -69,7 +71,8 @@ struct HomeView: View {
 
                     VStack (alignment: .leading, spacing: 20) {
                         HStack {
-                            Image("logEditor").resizable().frame(width: 80, height: 80).cornerRadius(20)
+                            Image(systemName:"skew")
+                                .resizable().frame(width: 80, height: 80).cornerRadius(20)
                             Spacer()
                             Image(systemName: "arrowtriangle.right.fill").resizable()
                             .frame(width: 10, height: 10).foregroundColor(.gray)

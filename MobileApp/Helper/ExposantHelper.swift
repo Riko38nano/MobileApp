@@ -7,14 +7,23 @@
 
 import SwiftUI
 
-struct ExposantHelper: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class ExposantHelper{
+    static func getNbExposant() -> Int{
+        var exposants = ExposantViewModel().exposants
+        return exposants.count
     }
-}
-
-struct ExposantHelper_Previews: PreviewProvider {
-    static var previews: some View {
-        ExposantHelper()
+    
+    static func getExposantByid(idExposant: String) -> Exposant?{
+        var exposants = ExposantViewModel().exposants
+        var exp : Exposant? = nil
+        for exposant in exposants{
+            if exposant._id == idExposant{
+                exp = exposant
+                break
+            }
+            
+        }
+    
+        return exp
     }
 }

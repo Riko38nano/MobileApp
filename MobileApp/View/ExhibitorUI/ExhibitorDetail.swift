@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ExhibitorDetail: View {
-    let persons = [Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Leo", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info")]
+ 
     var exposant: Exposant
+    @State var games: [GameView] = []
     var body: some View {
         
         VStack(spacing: 40){
@@ -20,8 +21,9 @@ struct ExhibitorDetail: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     
                     HStack(spacing: 20) {
-                        ForEach(persons) { item in
+                        ForEach(games) { gameView in
                             GeometryReader { geometry in
+                                //GameCard(gameView: gameView)
                                 GameCard()
                                     .rotation3DEffect(Angle(degrees:
                                         Double(geometry.frame(in: .global).minX - 30) / -20
@@ -31,36 +33,18 @@ struct ExhibitorDetail: View {
                         }
                     }
                     .padding(30)
+                }.onAppear{
+                    self.games = GameHelper.getGamesByExposantId(idExposant: exposant._id)
                 }
                 VStack{
                     HStack {
                         Text("Nombre de jeux")
                         Spacer()
-                        Text("10")
+                        Text(String(self.games.count))
                             .foregroundColor(.gray)
                             .font(.callout)
                     }
-                    HStack {
-                        Text("Low")
-                        Spacer()
-                        Text("2")
-                            .foregroundColor(.gray)
-                            .font(.callout)
-                    }
-                    HStack {
-                        Text("Premium")
-                        Spacer()
-                        Text("7")
-                            .foregroundColor(.gray)
-                            .font(.callout)
-                    }
-                    HStack {
-                        Text("Standart")
-                        Spacer()
-                        Text("1")
-                            .foregroundColor(.gray)
-                            .font(.callout)
-                    }
+                    
                 }.frame(width: 300, height: 120)
             }
         }

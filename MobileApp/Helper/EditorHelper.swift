@@ -7,14 +7,22 @@
 
 import SwiftUI
 
-struct EditorHelper: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+class EditorHelper{
+    static func getNbEditor() -> Int{
+        var editors = EditorViewModel().editors
+        return editors.count
     }
-}
-
-struct EditorHelper_Previews: PreviewProvider {
-    static var previews: some View {
-        EditorHelper()
+    
+    static func getEditorByid(idEditor: String) -> Editor?{
+        var editors = EditorViewModel().editors
+        var edi : Editor? = nil
+        for editor in editors{
+            if editor._id == idEditor{
+                edi = editor
+                break
+            }
+            
+        }
+        return edi
     }
 }

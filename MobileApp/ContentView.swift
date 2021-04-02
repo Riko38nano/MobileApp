@@ -18,7 +18,7 @@ struct ContentView: View{
         case .page1:
             HomeView()
         case .page2:
-            Zone()
+            ZoneList()
                 .transition(.scale)
         }
     }

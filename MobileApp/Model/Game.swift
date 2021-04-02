@@ -6,12 +6,17 @@
 //
 import SwiftUI
 
+
 class Game: Codable, Identifiable{
     var _id: String
+    var editorId: String
     var name: String
     var min_yearold: Int
     var category: String
     var duration: Int
+    var nb_player_min: Int
+    var nb_player_max: Int
+    var game_notice: String
     var __v: Int
 }
 class GameEditor: Codable, Identifiable{
@@ -41,3 +46,32 @@ class GameView: Codable, Identifiable{
     var exhibitor: GameExposant
     var proto: Bool
 }
+
+        "state": "apporté par exposant",
+        "zone": "Pas attribué",
+        "editor": {
+            "contacts": [
+                "alexis@auroragames.fr",
+                "formieres@linkkipeli.fr"
+            ],
+            "_id": "6066c34be8ee772b20d3bcb2",
+            "tmpIdEditor": "218",
+            "name": "Aurora",
+            "isEditor": true,
+            "isExhibitor": true,
+            "isPotential": true
+        },
+        "exhibitor": {
+            "contacts": [
+                "galoisnicolas@gmail.com",
+                ""
+            ],
+            "_id": "6066c34be8ee772b20d3bcaa",
+            "tmpIdEditor": "205",
+            "name": "A.L.F.",
+            "isEditor": false,
+            "isExhibitor": true,
+            "isPotential": true
+        },
+        "proto": true
+    }
