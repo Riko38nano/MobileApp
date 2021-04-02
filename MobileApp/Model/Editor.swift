@@ -17,8 +17,4 @@ class Editor: Codable, Identifiable {
     var isPotential: Bool
 }
 
-class EditorView: Codable, Identifiable{
-    var editor: Editor
-    var games: [Game]
-}
     

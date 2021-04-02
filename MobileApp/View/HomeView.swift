@@ -14,8 +14,7 @@ struct HomeView: View {
     /// which tab appear selected
     @ObservedObject var gameViewModel = GameViewModel()
     @ObservedObject var exposantViewModel = ExposantViewModel()
-    @State var nbEditor = EditorHelper.getNbEditor()
-    @State var nbExposant = ExposantHelper.getNbExposant()
+    @ObservedObject var editorViewModel = EditorViewModel()
     @ObservedObject var festivalViewModel = FestivalViewModel()
     @State private var tabSelected  = 0
     
@@ -46,7 +45,7 @@ struct HomeView: View {
                                 BlockOnCard(title: "Exposant",nb: exposantViewModel.nb, icone: "person").onTapGesture {
                                     self.tabSelected = 3
                                 }
-                                BlockOnCard(title: "Editor", nb: self.nbEditor,icone: "pencil.and.ellipsis.rectangle").onTapGesture {
+                                BlockOnCard(title: "Editor", nb: editorViewModel.nb,icone: "pencil.and.ellipsis.rectangle").onTapGesture {
                                     self.tabSelected = 2
                                 }
                             }

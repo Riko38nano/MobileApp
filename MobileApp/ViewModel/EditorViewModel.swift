@@ -9,16 +9,18 @@ import SwiftUI
 import Combine
 
 class EditorViewModel: ObservableObject, Identifiable {
-    @Published var editors: [EditorView] = []
+    @Published var editors: [Editor] = []
+    @Published var nb: Int = 0
     
-//    init() {
-//        getEditors()
-//    }
-//    
-//    func setHTTPEditors( editors: [EditorView]){
-//        self.editors = editors
-//    }
-//    func getEditors() {
-//        Api().getEditors(completion: setHTTPEditors)
-//    }
+    init() {
+        getEditors()
+    }
+    
+    func setHTTPEditors( editors: [Editor]){
+        self.editors = editors
+        self.nb = editors.count
+    }
+    func getEditors() {
+        Api().getEditors(completion: setHTTPEditors)
+    }
 }

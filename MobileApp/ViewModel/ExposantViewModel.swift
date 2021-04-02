@@ -24,15 +24,6 @@ class ExposantViewModel: ObservableObject, Identifiable {
         Api().getExposants(completion: setHTTPExposants)
     }
     
-    static func getGamesByExposantId(idExposant: String) -> [Game]{
-        var gamesViewModel = GameViewModel()
-        var games: [Game] = []
-        for gameView in gamesViewModel.gamesView{
-            if(gameView.exhibitor._id == idExposant){
-                games.append(gameView.game)
-            }
-        }
-        return games
-    }
+    
     
 }

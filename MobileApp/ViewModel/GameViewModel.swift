@@ -23,5 +23,23 @@ class GameViewModel: ObservableObject, Identifiable {
     func getGames() {
         Api().getGames(completion: setHTTPGames)
     }
-
+    func getGamesByExposantId(idExposant: String) -> [Game]{
+        var games: [Game] = []
+        for gameView in self.gamesView{
+            if(gameView.exhibitor._id == idExposant){
+                games.append(gameView.game)
+            }
+        }
+        return games
+    }
+    
+    func getGamesByEditorId(idEditor: String) -> [Game]{
+        var games: [Game] = []
+        for gameView in self.gamesView{
+            if(gameView.editor._id == idEditor){
+                games.append(gameView.game)
+            }
+        }
+        return games
+    }
 }

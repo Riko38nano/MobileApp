@@ -10,8 +10,10 @@ import SwiftUI
 struct ZoneDetail: View {
     @State var searchText = ""
     @State var isSearching = false
-    var zone: Zone
     
+    //Data fictif, Juste pour tester
+    //Data fictif, Juste pour tester
+    //Data fictif, Juste pour tester
     let persons = [Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Leo", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info")]
     
     private func filterSearch(person: Person) -> Bool{
@@ -31,10 +33,11 @@ struct ZoneDetail: View {
             if #available(iOS 14.0, *) {
                 ScrollView {
                     HStack(){
-                        Text(zone.label)
+                        Text("Zone Nom ici")
                     }
                     ZoneSearchBar(searchText: $searchText, isSearching: $isSearching)
                     LazyVGrid(columns: gridItems, content: {
+                        //Juste pour tester
                         ForEach(self.persons.filter(filterSearch)){ person in
                             NavigationLink( destination: Text("bds,cn"))//destination: GameDetail())
                             {
@@ -57,8 +60,7 @@ struct ZoneDetail: View {
 
 struct ZoneDetail_Previews: PreviewProvider {
     static var previews: some View {
-        //ZoneDetail()
-        Text("khsd")
+        ZoneDetail()
     }
 }
 

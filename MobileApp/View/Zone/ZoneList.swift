@@ -37,7 +37,7 @@ struct ZoneList: View {
                
                 
                 ForEach(self.zoneViewModel.zones){ zone in
-                    NavigationLink(destination: ZoneDetail(zone: zone))
+                    NavigationLink(destination: ZoneDetail())
                     {
                         ZoneRow(zone: zone)
                     }

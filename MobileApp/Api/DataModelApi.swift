@@ -13,7 +13,7 @@ class Api {
 
     func getFestival(toto: @escaping (Festival) -> ()) {
             print("enterring get Festival")
-            guard let url = URL(string: "http://127.0.0.1:5000/api/festivals/current") else {
+            guard let url = URL(string: "https://olympiade-des-jeux.herokuapp.com/api/festivals/current") else {
                 print("error il n'a pas charger lurl")
                 return }
             URLSession.shared.dataTask(with: url) { (data, _, _) in
@@ -31,7 +31,7 @@ class Api {
     
     func getGames(completion: @escaping ([GameView]) -> ()) {
             
-            guard let url = URL(string: "http://127.0.0.1:5000/api/festivals/games") else {
+            guard let url = URL(string: "https://olympiade-des-jeux.herokuapp.com/api/festivals/games") else {
                 return }
             URLSession.shared.dataTask(with: url) { (data, _, _) in
                 guard let data = data else { fatalError("il a craché")}
@@ -45,25 +45,25 @@ class Api {
             .resume()
     }
     
-//    func getEditors(completion: @escaping ([EditorView]) -> ()) {
-//
-//            guard let url = URL(string: "http://127.0.0.1:5000/api/festivals/editors") else {
-//                return }
-//            URLSession.shared.dataTask(with: url) { (data, _, _) in
-//                guard let data = data else { fatalError("il a craché")}
-//                print(data)
-//                let editors = try! JSONDecoder().decode([EditorView].self, from: data)
-//                DispatchQueue.main.async {
-//                    completion(editors)
-//                }
-//
-//            }
-//            .resume()
-//    }
-//
+    func getEditors(completion: @escaping ([Editor]) -> ()) {
+
+            guard let url = URL(string: "https://olympiade-des-jeux.herokuapp.com/api/festivals/editors") else {
+                return }
+            URLSession.shared.dataTask(with: url) { (data, _, _) in
+                guard let data = data else { fatalError("il a craché")}
+                print(data)
+                let editors = try! JSONDecoder().decode([Editor].self, from: data)
+                DispatchQueue.main.async {
+                    completion(editors)
+                }
+
+            }
+            .resume()
+    }
+
     func getExposants(completion: @escaping ([Exposant]) -> ()) {
             
-            guard let url = URL(string: "http://127.0.0.1:5000/api/festivals/exhibitors") else {
+            guard let url = URL(string: "https://olympiade-des-jeux.herokuapp.com/api/festivals/exhibitors") else {
                 return }
             URLSession.shared.dataTask(with: url) { (data, _, _) in
                 guard let data = data else { fatalError("il a craché")}
@@ -80,7 +80,7 @@ class Api {
     
     func getZones(completion: @escaping ([Zone]) -> ()) {
             
-            guard let url = URL(string: "http://127.0.0.1:5000/api/festivals/zones") else {
+            guard let url = URL(string: "https://olympiade-des-jeux.herokuapp.com/api/festivals/zones") else {
                 return }
             URLSession.shared.dataTask(with: url) { (data, _, _) in
                 guard let data = data else { fatalError("il a craché")}

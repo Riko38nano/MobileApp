@@ -12,7 +12,7 @@ import SwiftUI
 struct EditorListView: View {
     @State var searchText = ""
     @State var isSearching = false
-    //@ObservedObject var editorViewModel = EditorViewModel()
+    @ObservedObject var editorViewModel = EditorViewModel()
     
     private func filterSearch(editor: Editor) -> Bool{
         var ret = false
@@ -30,16 +30,16 @@ struct EditorListView: View {
                     
                     SearchBarExhibitor(searchText: $searchText, isSearching: $isSearching)
                     
-//                    ForEach(self.editorViewModel.editors.filter(filterSearch)){ editor in
-//                        NavigationLink(destination: EditorDetail(editor: editor))
-//                        {
-//                            HStack {
-//                                EditorRow(editor: editor)
-//                                Spacer()
-//                            }.padding()
-//                           
-//                        }
-//                    }
+                    ForEach(self.editorViewModel.editors.filter(filterSearch)){ editor in
+                        NavigationLink(destination: EditorDetail(editor: editor))
+                        {
+                            HStack {
+                                EditorRow(editor: editor)
+                                Spacer()
+                            }.padding()
+                           
+                        }
+                    }
                 }
                 .navigationTitle("Editor")
                     
