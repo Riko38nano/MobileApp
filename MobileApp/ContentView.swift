@@ -24,13 +24,6 @@ struct ContentView: View{
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environmentObject(ViewRouter())
@@ -38,23 +31,3 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
-
-
-//struct CardOnHome: View {
-//    @Binding var showGames: Bool
-//    @Binding var showEditors: Bool
-//    @Binding var showExposants: Bool
-//    var body: some View {
-//        HStack(spacing: 10) {
-//            BlockOnCard(title: "Jeux", nb: 5, imageName: "logEditor").onTapGesture {
-//                self.showGames.toggle()
-//            }
-//            BlockOnCard(title: "Exposant",nb: 5, imageName: "logEditor").onTapGesture {
-//                self.showExposants.toggle()
-//            }
-//            BlockOnCard(title: "Editor", nb: 5,imageName: "Logo1").onTapGesture {
-//                self.showEditors.toggle()
-//            }
-//        }
-//    }
-//}
