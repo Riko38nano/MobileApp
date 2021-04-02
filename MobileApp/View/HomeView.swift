@@ -12,6 +12,8 @@ struct HomeView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     //@EnvironmentObject var viewRouter: ViewRouter
     /// which tab appear selected
+    
+    @ObservedObject var festivalViewModel = FestivalViewModel()
     @State private var tabSelected  = 0
     var body: some View {
         TabView(selection: $tabSelected){
@@ -23,18 +25,23 @@ struct HomeView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 200, height: 200)
                         Spacer()
-                        Text("Edition 2020").bold().modifier(FontModifier(style: .title))
+                        if let festival = festivalViewModel.festival {
+                            VStack{
+                                Text("Edition: \(String(festival.year)) ").bold().modifier(FontModifier(style: .title))
+                                Text(festival.name)
+                            }
+                        }
                     }.padding()
                     HStack(){
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack(spacing: 10) {
-                                BlockOnCard(title: "Jeux", nb: 5, imageName: "logEditor").onTapGesture {
+                                BlockOnCard(title: "Jeux", nb: 5, icone: "gamecontroller").onTapGesture {
                                     self.tabSelected = 1
                                 }
-                                BlockOnCard(title: "Exposant",nb: 5, imageName: "logEditor").onTapGesture {
+                                BlockOnCard(title: "Exposant",nb: 5, icone: "person").onTapGesture {
                                     self.tabSelected = 3
                                 }
-                                BlockOnCard(title: "Editor", nb: 5,imageName: "Logo1").onTapGesture {
+                                BlockOnCard(title: "Editor", nb: 5,icone: "pencil.and.ellipsis.rectangle").onTapGesture {
                                     self.tabSelected = 2
                                 }
                             }
@@ -104,16 +111,16 @@ struct HomeView_Previews: PreviewProvider {
 struct BlockOnCard: View {
     var title: String
     var nb: Int
-    var imageName: String
+    var icone: String
     var body: some View {
         HStack(spacing: 12.0) {
-            Image(imageName)
+            Image(systemName: icone)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40, height: 40)
             VStack(alignment: .center, spacing: 4.0) {
                 Text(title).bold().modifier(FontModifier(style: .subheadline))
-                Text(String(nb)).modifier(FontModifier(style: .caption))
+                Text(String(nb)).modifier(FontModifier(style: .caption)).foregroundColor(.green)
             }
             .modifier(FontModifier())
         }

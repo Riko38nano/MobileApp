@@ -18,11 +18,11 @@ struct GameListe: View {
     @State var searchText = ""
     @State var isSearching = false
     
-    let persons = [Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Leo", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info"),Person(name:"Roger", etude: "Leo"), Person(name: "Rogerio", etude: "Info")]
+    @ObservedObject var gameViewModel = GameViewModel()
     
-    private func filterSearch(person: Person) -> Bool{
+    private func filterSearch(gamesView: GameView) -> Bool{
         var ret = false
-        if person.name.contains(searchText) || searchText.isEmpty {
+        if gamesView.game.name.lowercased().contains(searchText.lowercased()) || searchText.isEmpty {
             ret = true
         }
         return ret
@@ -38,11 +38,12 @@ struct GameListe: View {
                         GridItem(.flexible(minimum: 50, maximum: 200), spacing: 16, alignment: .top),
                         GridItem(.flexible(minimum: 50, maximum: 200), spacing: 16),
                     ], alignment: .leading, spacing: 16, content: {
-                        ForEach(self.persons.filter(filterSearch)){ person in
-                            NavigationLink(destination: GameDetail())
+                        ForEach(self.gameViewModel.gamesView.filter(filterSearch)){ gameView in
+                            NavigationLink(destination: GameDetail(gameView: gameView))
                             {
                                 HStack {
-                                    GameRow(user: person)
+                                    //Text("fsghdshfdhs")
+                                    GameRow(gamesView: gameView)
                                     Spacer()
                                 }.padding()
                                
@@ -123,23 +124,23 @@ struct SearchBar: View {
 }
 
 struct GameRow: View {
-    let user: Person
+    let gamesView: GameView
     
     var body: some View {
     
         VStack(alignment: .leading, spacing: 4) {
             
-            Image(user.imageName)
+            Image("gameIcon")
                 .resizable()
                 .scaledToFit()
                 .cornerRadius(22)
             
-            Text(user.name)
+            Text(gamesView.game.name)
                 .font(.system(size: 10, weight: .semibold))
                 .padding(.top, 4)
-            Text(user.etude)
+            Text(gamesView.game.category)
                 .font(.system(size: 9, weight: .regular))
-            Text(user.name)
+            Text("\(gamesView.game.duration) min")
                 .font(.system(size: 9, weight: .regular))
                 .foregroundColor(.gray)
             

@@ -32,7 +32,7 @@ struct ZoneDetail: View {
                     ZoneSearchBar(searchText: $searchText, isSearching: $isSearching)
                     LazyVGrid(columns: gridItems, content: {
                         ForEach(self.persons.filter(filterSearch)){ person in
-                            NavigationLink(destination: GameDetail())
+                            NavigationLink( destination: Text("bds,cn"))//destination: GameDetail())
                             {
                                 HStack {
                                     GameCard()

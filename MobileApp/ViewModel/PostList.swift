@@ -8,23 +8,22 @@
 import SwiftUI
 
 struct PostList: View {
-    @ObservedObject var store = DataStore()
-    
+    //@ObservedObject var store = FestivalViewModel()
+    @ObservedObject var store = GameViewModel()
     var body: some View {
         Text("dscdcdcd")
-        Spacer()
-        //List(store.posts) { post in
-            VStack(alignment: .leading,spacing: 8) {
-                if let post = store.posts {
-                    Text(post.name).font(.system(.title, design: .serif)).bold()
-                    Text(post._id)
-                }
-                else{
-                    Text("no data")
-                }
-
-            }
-       // }
+//        Spacer()
+//        if(!store.games.isEmpty){
+//        List(store.games ) { post in
+//            VStack(alignment: .leading,spacing: 8) {
+//                
+//                    Text(post.state).font(.system(.title, design: .serif)).bold()
+//                    Text(post.zone)
+//                }
+//            }
+//        }else{
+//            Text("no data")
+//        }
     }
 }
 

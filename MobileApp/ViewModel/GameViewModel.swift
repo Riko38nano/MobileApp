@@ -2,23 +2,23 @@
 //  GameViewModel.swift
 //  MobileApp
 //
-//  Created by etud on 11/03/2021.
+//  Created by Rogerio MENSAH on 02/04/2021.
 //
 
 import SwiftUI
 import Combine
 
-class DataStore: ObservableObject {
-    @Published var posts: Festival? = nil
+class GameViewModel: ObservableObject, Identifiable {
+    @Published var gamesView: [GameView] = []
     
     init() {
-        getFestival()
+        getGames()
     }
     
-    func setHTTPFestival( festival : Festival){
-        self.posts = festival
+    func setHTTPGames( gamesView: [GameView]){
+        self.gamesView = gamesView
     }
-    func getFestival() {
-        Api().getFestival(toto: setHTTPFestival)
+    func getGames() {
+        Api().getGames(completion: setHTTPGames)
     }
 }

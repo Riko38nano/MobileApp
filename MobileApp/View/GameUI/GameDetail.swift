@@ -10,13 +10,14 @@ import SwiftUI
 struct GameDetail: View {
     @State private var isShowingSheetExposant = false
     @State private var isShowingSheetEditor = false
+    var gameView: GameView
     var body: some View {
         ScrollView{
             VStack{
                 Image("battle").resizable().aspectRatio(1.35, contentMode: .fill).frame(width:UIScreen.main.bounds.width,height: 500).offset(y: -200).padding(.bottom, -200)
                 VStack{
                     VStack(alignment: .leading, spacing: 10){
-                                Text("nom du jeu").fontWeight(.heavy).font(.largeTitle)
+                        Text(gameView.game.name).fontWeight(.heavy).font(.largeTitle)
                     }.padding()
                     VStack(spacing: 30.0){
                         HStack{
@@ -27,7 +28,7 @@ struct GameDetail: View {
                                         .foregroundColor(.white)
                                         .padding(.top, 8)
                                         .padding(.leading)
-                                    Text("505 Games France")
+                                    Text(gameView.exhibitor.name)
                                         .font(.system(size: 13, weight: .bold))
                                         .foregroundColor(.white)
                                         .padding(.top, 8)
@@ -70,7 +71,7 @@ struct GameDetail: View {
                                         .foregroundColor(.white)
                                         .padding(.top, 8)
                                         .padding(.leading)
-                                    Text("505 Games France")
+                                    Text(gameView.editor.name)
                                         .font(.system(size: 13, weight: .bold))
                                         .foregroundColor(.white)
                                         .padding(.top, 8)
@@ -109,12 +110,12 @@ struct GameDetail: View {
                         .frame(maxWidth: .infinity)
                         
                         HStack(spacing: 20.0) {
-                            RingView(color1: #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1), color2: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), width: 88, height: 88, age: 18)
+                            RingView(color1: #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1), color2: #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1), width: 88, height: 88, age: CGFloat(gameView.game.min_yearold))
                                 .animation(Animation.easeInOut.delay(0.3))
                             
                             VStack(alignment: .leading, spacing: 8.0) {
                                 Text("Durée").fontWeight(.bold)
-                                Text("35 min")
+                                Text("\(gameView.game.duration) min")
                                     .font(.footnote)
                                     .foregroundColor(.gray)
                                     .lineSpacing(4)
@@ -128,21 +129,28 @@ struct GameDetail: View {
                             HStack {
                                 Text("Catégorie")
                                 Spacer()
-                                Text("Enfant")
+                                Text(gameView.game.category)
                                     .foregroundColor(.gray)
                                     .font(.callout)
                             }
                             HStack {
                                 Text("Prototype")
                                 Spacer()
-                                Text("Oui")
-                                    .foregroundColor(.gray)
-                                    .font(.callout)
+                                if(gameView.proto){
+                                    Text("Oui")
+                                        .foregroundColor(.gray)
+                                        .font(.callout)
+                                }else{
+                                    Text("Non")
+                                        .foregroundColor(.gray)
+                                        .font(.callout)
+                                }
+                                
                             }
                             HStack {
                                 Text("Zone")
                                 Spacer()
-                                Text("Premium")
+                                Text(gameView.zone)
                                     .foregroundColor(.gray)
                                     .font(.callout)
                             }
@@ -154,9 +162,13 @@ struct GameDetail: View {
     }
 }
 
+
+
 struct GameDetail_Previews: PreviewProvider {
     static var previews: some View {
-        GameDetail()
+        //var gameViewModel = GameViewModel()
+        //GameDetail(gameView: gameViewModel[0])
+        Text("NEKKE")
     }
 }
 
@@ -227,8 +239,8 @@ var body: some View {
             .frame(width: width, height: height)
             .shadow(color: Color(color2).opacity(0.1), radius: 3 * multiplier, x: 0, y: 3 * multiplier)
         
-        Text("-\(Int(age))")
-            .font(.system(size: 14 * multiplier))
+        Text("\(Int(age)) ans")
+            .font(.system(size: 10 * multiplier))
             .fontWeight(.bold)
 
     }
